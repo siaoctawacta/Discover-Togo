@@ -1,0 +1,154 @@
+{
+  "common": {
+    "back": "Back", "cancel": "Cancel", "clear": "Clear", "close": "Close", "delete": "Delete", "done": "Done",
+    "goHome": "Go home", "remove": "Remove", "retry": "Try again", "save": "Save", "search": "Search",
+    "seeAll": "See all", "sponsored": "Sponsored", "ad": "Advertisement"
+  },
+  "tabs": { "home": "Home", "explore": "Explore", "map": "Map", "saved": "Saved", "profile": "Profile" },
+  "onboarding": {
+    "title": "Explore Your Favorite Journey",
+    "subtitle": "Discover the beauty of Togo",
+    "go": "Go",
+    "swipeHint": "Swipe up or tap to start exploring"
+  },
+  "home": {
+    "title": "Discover",
+    "subtitle": "Togo, from the coast to the savannah",
+    "featuredTab": "Featured",
+    "emptyCategory": "Nothing here yet — try another category.",
+    "experiences": "Popular experiences",
+    "topRestaurants": "Top restaurants",
+    "topHotels": "Top hotels",
+    "recommended": "Recommended for you",
+    "useLocation": "Use my location",
+    "reason": {
+      "personalized": "Based on your interests",
+      "nearby": "Close to you",
+      "popular": "Popular with travellers"
+    },
+    "ctaExplore": "Explore", "ctaBook": "Book", "ctaSave": "Saved",
+    "notificationsTitle": "Notifications",
+    "notificationsEmpty": "You're all caught up."
+  },
+  "kinds": {
+    "place": "Place", "restaurant": "Restaurant", "hotel": "Hotel",
+    "placePlural": "Places", "restaurantPlural": "Restaurants", "hotelPlural": "Hotels"
+  },
+  "categories": {
+    "nature": "Nature", "culture": "Culture", "historical": "Historical", "beach": "Beach", "city": "City", "adventure": "Adventure"
+  },
+  "cuisines": {
+    "local": "Togolese", "african": "African", "continental": "Continental", "fast_food": "Fast food", "seafood": "Seafood", "cafe": "Café"
+  },
+  "hotelTypes": { "hotel": "Hotel", "lodge": "Lodge", "guesthouse": "Guesthouse", "resort": "Resort" },
+  "amenities": {
+    "wifi": "Wi-Fi", "pool": "Pool", "parking": "Parking", "restaurant": "Restaurant", "bar": "Bar",
+    "air_conditioning": "Air conditioning", "gym": "Gym", "spa": "Spa", "airport_shuttle": "Airport shuttle",
+    "beach_access": "Beach access", "breakfast": "Breakfast", "conference_room": "Conference room"
+  },
+  "regions": { "maritime": "Maritime", "plateaux": "Plateaux", "centrale": "Centrale", "kara": "Kara", "savanes": "Savanes" },
+  "sort": { "popular": "Popular", "rating": "Top rated", "newest": "Newest", "distance": "Nearest" },
+  "explore": {
+    "title": "Explore",
+    "searchPlaceholder": "Search {{kind}}…",
+    "results_one": "{{count}} result",
+    "results_other": "{{count}} results",
+    "emptyTitle": "No results",
+    "emptyMessage": "Try changing your filters or search."
+  },
+  "filters": {
+    "title": "Filters", "apply": "Show results", "reset": "Reset", "sort": "Sort by",
+    "region": "Region", "location": "Location", "city": "City", "category": "Category",
+    "cuisine": "Cuisine", "price": "Price", "priceRange": "Price per night", "rating": "Minimum rating", "hotelType": "Type",
+    "pricePresets": { "lt25": "< 25k FCFA", "25to50": "25k–50k", "50to100": "50k–100k", "gt100": "> 100k FCFA" }
+  },
+  "map": {
+    "title": "Map",
+    "nearMe": "Near me",
+    "webFallback": "Interactive maps are available in the mobile app. Tap a place to open it."
+  },
+  "search": {
+    "placeholder": "Search places, restaurants, hotels",
+    "recent": "Recent searches",
+    "noRecent": "Your recent searches will appear here.",
+    "noResults": "No results for “{{q}}”",
+    "noResultsHint": "Check the spelling or try a broader term."
+  },
+  "detail": {
+    "distance": "Distance", "rating": "Rating", "entryFee": "Entry fee", "priceFrom": "Price from", "fromPerNight": "From / night",
+    "perNight": "Price per night", "free": "Free", "description": "Description", "readMore": "Read more", "readLess": "Read less",
+    "openingHours": "Opening hours", "address": "Address", "menu": "Menu", "amenities": "Amenities",
+    "call": "Call", "email": "Email", "website": "Website", "book": "Book", "location": "Location", "directions": "Directions",
+    "reviews": "Reviews", "reviewCount_one": "{{count}} review", "reviewCount_other": "{{count}} reviews",
+    "favorite": "Add to favorites", "unfavorite": "Remove from favorites",
+    "saveOffline": "Save for offline", "saveOfflineHint": "Keep this page available without internet"
+  },
+  "reviews": {
+    "write": "Write a review", "empty": "No reviews yet.", "beFirst": "Be the first to share your experience.",
+    "yourRating": "Your rating", "yourReview": "Your review", "placeholder": "What did you enjoy? Any tips for other travellers?",
+    "submit": "Submit review", "thanks": "Thank you!", "pendingModeration": "Your review will appear once it has been approved.",
+    "alreadyReviewed": "You have already reviewed this place.",
+    "moderationNote": "Reviews are moderated before being published."
+  },
+  "saved": {
+    "title": "Saved", "favorites": "Favorites", "offline": "Offline",
+    "emptyTitle": "No favorites yet", "emptyMessage": "Tap the heart on any place to save it here.",
+    "offlineEmptyTitle": "Nothing saved offline", "offlineEmptyMessage": "Use “Save for offline” on a detail page to read it without internet.",
+    "signInTitle": "Sign in to sync favorites", "signInMessage": "Your favorites are saved to your account across devices."
+  },
+  "offline": {
+    "banner": "You're offline — showing saved content",
+    "remove": "Remove from offline",
+    "limitTitle": "Offline storage full",
+    "limitMessage": "You can keep up to {{max}} items offline. Remove some to save more."
+  },
+  "profile": {
+    "title": "Profile", "traveler": "Traveller", "editName": "Edit name",
+    "guestTitle": "Your Togo travel companion", "guestMessage": "Sign in to save favorites, write reviews and get personalized recommendations.",
+    "recentlyViewed": "Recently viewed", "noRecent": "Places you open will appear here.",
+    "preferences": "Preferences", "interests": "Interests", "regions": "Favorite regions",
+    "signOut": "Sign out", "signOutConfirm": "Do you want to sign out?",
+    "deleteAccount": "Delete account", "deleteConfirm": "This permanently deletes your profile, favorites and reviews. This cannot be undone.",
+    "deleted": "Your account has been deleted."
+  },
+  "settings": {
+    "title": "Settings", "language": "Language", "theme": "Appearance", "system": "System", "light": "Light", "dark": "Dark",
+    "offlineData": "Offline data", "offlineSummary": "{{count}} of {{max}} items saved for offline use.",
+    "clearOffline": "Clear offline items", "clearOfflineConfirm": "Remove all items saved for offline use?",
+    "clearCache": "Clear cache", "cacheCleared": "Cached data cleared.",
+    "about": "About", "aboutText": "Discover Togo helps you explore the places, flavours and stays of Togo — from Lomé's beaches to the hills of Kpalimé and the savannahs of the north.",
+    "privacy": "Privacy",
+    "privacyText": "We only store public listing data and your display preferences on this device. Your sign-in session is kept in the device's secure storage and cleared when you sign out. Location is used only to show distances and is never stored.",
+    "version": "Version {{version}}"
+  },
+  "auth": {
+    "login": "Log in", "signup": "Sign up", "welcomeBack": "Welcome back", "loginSubtitle": "Log in to save favorites and write reviews.",
+    "createAccount": "Create account", "signupSubtitle": "Join the community of Togo explorers.",
+    "email": "Email", "password": "Password", "displayName": "Display name", "forgot": "Forgot password?",
+    "noAccount": "No account yet?", "haveAccount": "Already have an account?",
+    "google": "Continue with Google", "devLogin": "Dev login (local backend)",
+    "resetTitle": "Reset password", "resetSubtitle": "Enter your email and we'll send you a reset link.",
+    "sendReset": "Send reset link", "resetSent": "If an account exists for this email, a reset link is on its way.",
+    "notConfigured": "Sign-in is not configured for this build.",
+    "notConfiguredHint": "Set the EXPO_PUBLIC_FIREBASE_* variables (see .env.example).",
+    "requiredTitle": "Sign in required", "requiredReview": "Log in to write a review.",
+    "reason": { "favorite": "Log in to save places to your favorites.", "review": "Log in to write a review." },
+    "errors": {
+      "invalidEmail": "This email address is not valid.", "invalidCredentials": "Incorrect email or password.",
+      "emailInUse": "An account already exists with this email.", "weakPassword": "Choose a stronger password.",
+      "tooMany": "Too many attempts. Please try again later.", "google": "Google sign-in failed. Please try again."
+    }
+  },
+  "validation": {
+    "required": "This field is required.", "email": "Enter a valid email address.",
+    "passwordShort": "At least {{min}} characters.", "nameTooLong": "At most {{max}} characters.",
+    "rating": "Choose a rating from 1 to 5.", "reviewTooShort": "Write at least {{min}} characters.", "reviewTooLong": "At most {{max}} characters."
+  },
+  "errors": {
+    "title": "Something went wrong", "offlineTitle": "You're offline",
+    "generic": "Please try again in a moment.", "network": "Check your internet connection and try again.",
+    "notFound": "We couldn't find this page.", "unauthenticated": "Please sign in again.", "forbidden": "You don't have access to this.",
+    "rateLimited": "Too many requests. Please wait a moment.", "conflict": "This already exists.", "validation": "Some information is invalid.",
+    "invalidLink": "This link is not valid.", "cannotOpen": "This link can't be opened.", "sectionUnavailable": "Unavailable right now."
+  }
+}

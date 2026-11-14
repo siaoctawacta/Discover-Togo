@@ -1,0 +1,62 @@
+{
+  "expo": {
+    "name": "Discover Togo",
+    "slug": "discover-togo",
+    "scheme": "discovertogo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#2F4A2A"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "app.discovertogo.mobile",
+      "infoPlist": {
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": false
+        },
+        "NSLocationWhenInUseUsageDescription": "Discover Togo uses your location to show distances and places near you."
+      }
+    },
+    "android": {
+      "package": "app.discovertogo.mobile",
+      "adaptiveIcon": {
+        "backgroundColor": "#2F4A2A",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"],
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "output": "single",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-image",
+      "expo-localization",
+      "expo-secure-store",
+      "expo-web-browser",
+      [
+        "expo-splash-screen",
+        { "image": "./assets/splash-icon.png", "imageWidth": 160, "backgroundColor": "#2F4A2A" }
+      ],
+      [
+        "expo-location",
+        { "locationWhenInUsePermission": "Discover Togo uses your location to show distances and places near you." }
+      ],
+      "expo-notifications"
+    ],
+    "experiments": {
+      "typedRoutes": false
+    }
+  }
+}

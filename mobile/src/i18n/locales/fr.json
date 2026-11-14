@@ -1,0 +1,154 @@
+{
+  "common": {
+    "back": "Retour", "cancel": "Annuler", "clear": "Effacer", "close": "Fermer", "delete": "Supprimer", "done": "Terminé",
+    "goHome": "Accueil", "remove": "Retirer", "retry": "Réessayer", "save": "Enregistrer", "search": "Rechercher",
+    "seeAll": "Tout voir", "sponsored": "Sponsorisé", "ad": "Publicité"
+  },
+  "tabs": { "home": "Accueil", "explore": "Explorer", "map": "Carte", "saved": "Favoris", "profile": "Profil" },
+  "onboarding": {
+    "title": "Explorez votre voyage préféré",
+    "subtitle": "Découvrez la beauté du Togo",
+    "go": "Go",
+    "swipeHint": "Glissez vers le haut ou touchez pour commencer"
+  },
+  "home": {
+    "title": "Découvrir",
+    "subtitle": "Le Togo, de la côte à la savane",
+    "featuredTab": "À la une",
+    "emptyCategory": "Rien pour l'instant — essayez une autre catégorie.",
+    "experiences": "Expériences populaires",
+    "topRestaurants": "Meilleurs restaurants",
+    "topHotels": "Meilleurs hôtels",
+    "recommended": "Recommandé pour vous",
+    "useLocation": "Utiliser ma position",
+    "reason": {
+      "personalized": "Selon vos centres d'intérêt",
+      "nearby": "Près de vous",
+      "popular": "Populaire auprès des voyageurs"
+    },
+    "ctaExplore": "Explorer", "ctaBook": "Réserver", "ctaSave": "Favoris",
+    "notificationsTitle": "Notifications",
+    "notificationsEmpty": "Aucune nouvelle notification."
+  },
+  "kinds": {
+    "place": "Lieu", "restaurant": "Restaurant", "hotel": "Hôtel",
+    "placePlural": "Lieux", "restaurantPlural": "Restaurants", "hotelPlural": "Hôtels"
+  },
+  "categories": {
+    "nature": "Nature", "culture": "Culture", "historical": "Histoire", "beach": "Plage", "city": "Ville", "adventure": "Aventure"
+  },
+  "cuisines": {
+    "local": "Togolaise", "african": "Africaine", "continental": "Continentale", "fast_food": "Restauration rapide", "seafood": "Fruits de mer", "cafe": "Café"
+  },
+  "hotelTypes": { "hotel": "Hôtel", "lodge": "Lodge", "guesthouse": "Maison d'hôtes", "resort": "Resort" },
+  "amenities": {
+    "wifi": "Wi-Fi", "pool": "Piscine", "parking": "Parking", "restaurant": "Restaurant", "bar": "Bar",
+    "air_conditioning": "Climatisation", "gym": "Salle de sport", "spa": "Spa", "airport_shuttle": "Navette aéroport",
+    "beach_access": "Accès plage", "breakfast": "Petit-déjeuner", "conference_room": "Salle de conférence"
+  },
+  "regions": { "maritime": "Maritime", "plateaux": "Plateaux", "centrale": "Centrale", "kara": "Kara", "savanes": "Savanes" },
+  "sort": { "popular": "Populaires", "rating": "Mieux notés", "newest": "Récents", "distance": "Les plus proches" },
+  "explore": {
+    "title": "Explorer",
+    "searchPlaceholder": "Rechercher des {{kind}}…",
+    "results_one": "{{count}} résultat",
+    "results_other": "{{count}} résultats",
+    "emptyTitle": "Aucun résultat",
+    "emptyMessage": "Modifiez vos filtres ou votre recherche."
+  },
+  "filters": {
+    "title": "Filtres", "apply": "Voir les résultats", "reset": "Réinitialiser", "sort": "Trier par",
+    "region": "Région", "location": "Localisation", "city": "Ville", "category": "Catégorie",
+    "cuisine": "Cuisine", "price": "Prix", "priceRange": "Prix par nuit", "rating": "Note minimale", "hotelType": "Type",
+    "pricePresets": { "lt25": "< 25k FCFA", "25to50": "25k–50k", "50to100": "50k–100k", "gt100": "> 100k FCFA" }
+  },
+  "map": {
+    "title": "Carte",
+    "nearMe": "Autour de moi",
+    "webFallback": "La carte interactive est disponible dans l'application mobile. Touchez un lieu pour l'ouvrir."
+  },
+  "search": {
+    "placeholder": "Lieux, restaurants, hôtels",
+    "recent": "Recherches récentes",
+    "noRecent": "Vos recherches récentes apparaîtront ici.",
+    "noResults": "Aucun résultat pour « {{q}} »",
+    "noResultsHint": "Vérifiez l'orthographe ou essayez un terme plus large."
+  },
+  "detail": {
+    "distance": "Distance", "rating": "Note", "entryFee": "Entrée", "priceFrom": "À partir de", "fromPerNight": "Dès / nuit",
+    "perNight": "Prix par nuit", "free": "Gratuit", "description": "Description", "readMore": "Lire la suite", "readLess": "Réduire",
+    "openingHours": "Horaires", "address": "Adresse", "menu": "Menu", "amenities": "Équipements",
+    "call": "Appeler", "email": "E-mail", "website": "Site web", "book": "Réserver", "location": "Emplacement", "directions": "Itinéraire",
+    "reviews": "Avis", "reviewCount_one": "{{count}} avis", "reviewCount_other": "{{count}} avis",
+    "favorite": "Ajouter aux favoris", "unfavorite": "Retirer des favoris",
+    "saveOffline": "Disponible hors ligne", "saveOfflineHint": "Consultez cette page sans connexion"
+  },
+  "reviews": {
+    "write": "Écrire un avis", "empty": "Pas encore d'avis.", "beFirst": "Soyez le premier à partager votre expérience.",
+    "yourRating": "Votre note", "yourReview": "Votre avis", "placeholder": "Qu'avez-vous aimé ? Des conseils pour les autres voyageurs ?",
+    "submit": "Publier l'avis", "thanks": "Merci !", "pendingModeration": "Votre avis sera visible après validation.",
+    "alreadyReviewed": "Vous avez déjà donné votre avis sur ce lieu.",
+    "moderationNote": "Les avis sont modérés avant publication."
+  },
+  "saved": {
+    "title": "Favoris", "favorites": "Favoris", "offline": "Hors ligne",
+    "emptyTitle": "Aucun favori", "emptyMessage": "Touchez le cœur d'un lieu pour l'enregistrer ici.",
+    "offlineEmptyTitle": "Rien hors ligne", "offlineEmptyMessage": "Utilisez « Disponible hors ligne » sur une fiche pour la lire sans connexion.",
+    "signInTitle": "Connectez-vous pour synchroniser", "signInMessage": "Vos favoris sont enregistrés sur votre compte, sur tous vos appareils."
+  },
+  "offline": {
+    "banner": "Hors ligne — contenu enregistré affiché",
+    "remove": "Retirer du hors ligne",
+    "limitTitle": "Stockage hors ligne plein",
+    "limitMessage": "Vous pouvez garder jusqu'à {{max}} éléments hors ligne. Retirez-en pour en ajouter."
+  },
+  "profile": {
+    "title": "Profil", "traveler": "Voyageur", "editName": "Modifier le nom",
+    "guestTitle": "Votre compagnon de voyage au Togo", "guestMessage": "Connectez-vous pour enregistrer vos favoris, publier des avis et recevoir des recommandations.",
+    "recentlyViewed": "Vus récemment", "noRecent": "Les lieux consultés apparaîtront ici.",
+    "preferences": "Préférences", "interests": "Centres d'intérêt", "regions": "Régions préférées",
+    "signOut": "Se déconnecter", "signOutConfirm": "Voulez-vous vous déconnecter ?",
+    "deleteAccount": "Supprimer le compte", "deleteConfirm": "Votre profil, vos favoris et vos avis seront définitivement supprimés. Cette action est irréversible.",
+    "deleted": "Votre compte a été supprimé."
+  },
+  "settings": {
+    "title": "Paramètres", "language": "Langue", "theme": "Apparence", "system": "Système", "light": "Clair", "dark": "Sombre",
+    "offlineData": "Données hors ligne", "offlineSummary": "{{count}} sur {{max}} éléments enregistrés hors ligne.",
+    "clearOffline": "Vider le hors ligne", "clearOfflineConfirm": "Retirer tous les éléments enregistrés hors ligne ?",
+    "clearCache": "Vider le cache", "cacheCleared": "Cache vidé.",
+    "about": "À propos", "aboutText": "Discover Togo vous aide à explorer les lieux, saveurs et hébergements du Togo — des plages de Lomé aux collines de Kpalimé et aux savanes du nord.",
+    "privacy": "Confidentialité",
+    "privacyText": "Seules les données publiques des fiches et vos préférences d'affichage sont stockées sur cet appareil. Votre session est conservée dans le stockage sécurisé de l'appareil et effacée à la déconnexion. La position sert uniquement à afficher les distances et n'est jamais enregistrée.",
+    "version": "Version {{version}}"
+  },
+  "auth": {
+    "login": "Se connecter", "signup": "S'inscrire", "welcomeBack": "Bon retour", "loginSubtitle": "Connectez-vous pour enregistrer vos favoris et publier des avis.",
+    "createAccount": "Créer un compte", "signupSubtitle": "Rejoignez la communauté des explorateurs du Togo.",
+    "email": "E-mail", "password": "Mot de passe", "displayName": "Nom affiché", "forgot": "Mot de passe oublié ?",
+    "noAccount": "Pas encore de compte ?", "haveAccount": "Déjà un compte ?",
+    "google": "Continuer avec Google", "devLogin": "Connexion dev (backend local)",
+    "resetTitle": "Réinitialiser le mot de passe", "resetSubtitle": "Saisissez votre e-mail pour recevoir un lien de réinitialisation.",
+    "sendReset": "Envoyer le lien", "resetSent": "Si un compte existe pour cet e-mail, un lien vous a été envoyé.",
+    "notConfigured": "La connexion n'est pas configurée pour cette version.",
+    "notConfiguredHint": "Définissez les variables EXPO_PUBLIC_FIREBASE_* (voir .env.example).",
+    "requiredTitle": "Connexion requise", "requiredReview": "Connectez-vous pour écrire un avis.",
+    "reason": { "favorite": "Connectez-vous pour ajouter des lieux à vos favoris.", "review": "Connectez-vous pour écrire un avis." },
+    "errors": {
+      "invalidEmail": "Cette adresse e-mail n'est pas valide.", "invalidCredentials": "E-mail ou mot de passe incorrect.",
+      "emailInUse": "Un compte existe déjà avec cet e-mail.", "weakPassword": "Choisissez un mot de passe plus robuste.",
+      "tooMany": "Trop de tentatives. Réessayez plus tard.", "google": "La connexion Google a échoué. Réessayez."
+    }
+  },
+  "validation": {
+    "required": "Ce champ est obligatoire.", "email": "Saisissez une adresse e-mail valide.",
+    "passwordShort": "Au moins {{min}} caractères.", "nameTooLong": "{{max}} caractères maximum.",
+    "rating": "Choisissez une note de 1 à 5.", "reviewTooShort": "Écrivez au moins {{min}} caractères.", "reviewTooLong": "{{max}} caractères maximum."
+  },
+  "errors": {
+    "title": "Une erreur est survenue", "offlineTitle": "Vous êtes hors ligne",
+    "generic": "Veuillez réessayer dans un instant.", "network": "Vérifiez votre connexion internet et réessayez.",
+    "notFound": "Page introuvable.", "unauthenticated": "Veuillez vous reconnecter.", "forbidden": "Accès refusé.",
+    "rateLimited": "Trop de requêtes. Patientez un instant.", "conflict": "Cet élément existe déjà.", "validation": "Certaines informations sont invalides.",
+    "invalidLink": "Ce lien n'est pas valide.", "cannotOpen": "Impossible d'ouvrir ce lien.", "sectionUnavailable": "Indisponible pour le moment."
+  }
+}
