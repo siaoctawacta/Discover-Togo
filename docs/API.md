@@ -11,7 +11,7 @@ All bodies are JSON (`Content-Type: application/json`, max 20 KB). All responses
 | Language | `?lang=en\|fr` (falls back to `Accept-Language`, then `en`). Public endpoints return localized strings. Admin endpoints return raw `{ en, fr }` objects. |
 | Pagination | `?page=1&limit=20` (limit max 50). Response: `{ data, page, limit, total, hasMore }` |
 | Errors | `{ "error": { "code": "VALIDATION_ERROR", "message": "…", "requestId": "…", "details": [...] } }` |
-| Error codes | `VALIDATION_ERROR` 400, `UNAUTHENTICATED` 401, `FORBIDDEN` 403, `NOT_FOUND` 404, `CONFLICT` 409, `PAYLOAD_TOO_LARGE` 413, `UNSUPPORTED_MEDIA_TYPE` 415, `RATE_LIMITED` 429, `INTERNAL` 500 |
+| Error codes | `VALIDATION_ERROR` 400, `HTTPS_REQUIRED` 400, `UNAUTHENTICATED` 401, `FORBIDDEN` 403, `ACCOUNT_SUSPENDED` 403, `NOT_FOUND` 404, `CONFLICT` 409, `PAYLOAD_TOO_LARGE` 413, `UNSUPPORTED_MEDIA_TYPE` 415, `RATE_LIMITED` 429, `INTERNAL` 500 |
 | IDs | 24-hex-char strings. Detail endpoints accept an id **or** a slug. |
 | Unknown query/body keys | Rejected with `VALIDATION_ERROR` (strict schemas). |
 
@@ -82,7 +82,7 @@ interface Review {
 
 interface Me {
   id: string; email: string; displayName: string; photoUrl?: string;
-  role: Role; status: 'active' | 'suspended';
+  role: Role; status: 'active' | 'suspended'; emailVerified: boolean;
   preferences: { language: 'en' | 'fr'; theme: 'system' | 'light' | 'dark';
                  interests: PlaceCategory[]; regions: RegionId[] };
   createdAt: string;
@@ -126,7 +126,7 @@ interface MapPin {
 | DELETE | `/me/favorites/:listingId` | – | `204` |
 | GET | `/me/recent` | `lang` | `{ data: Listing[] }` (max 20, newest first) |
 | POST | `/me/push-token` | `{ token, platform: 'ios'\|'android' }` | `204` |
-| POST | `/listings/:id/reviews` | `{ rating: 1..5, comment: 10..1000 chars }` | `201 Review` with `status: 'pending'` (one review per user per listing → `409`) |
+| POST | `/listings/:id/reviews` | `{ rating: 1..5, comment: 10..1000 chars, ≤2 links }` | `201 Review` with `status: 'pending'`. Requires a verified email (`403`). One review per user per listing (`409`). HTML is stripped. |
 
 ## Admin endpoints (`editor` or `admin`; ★ = `admin` only)
 
@@ -145,3 +145,16 @@ interface MapPin {
 | GET | `/admin/audit-logs` ★ | `page, limit` | `Paginated<{ id, actorId, actorEmail, action, targetType, targetId, ip, createdAt }>` |
 
 Image URLs must be `https://` and on an allow-listed host (`IMAGE_HOSTS` env, default: `firebasestorage.googleapis.com, storage.googleapis.com, images.unsplash.com, upload.wikimedia.org`).
+
+## Rate limits
+
+Limits are keyed by user id when authenticated and by client IP otherwise (IPv6 grouped by /56). Every response carries the IETF `RateLimit` and `RateLimit-Policy` headers. Exceeding a limit returns `429 RATE_LIMITED`.
+
+| Scope | Limit |
+|---|---|
+| All `/api` traffic (per IP) | 1500 / 15 min |
+| `/search` | 60 / min |
+| `/auth/session` | 50 / 15 min |
+| Authenticated writes | 300 / 15 min |
+| Review creation | 10 / hour |
+| `/admin/*` | 2000 / 15 min |

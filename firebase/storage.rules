@@ -1,0 +1,37 @@
+rules_version = '2';
+// Cloud Storage security rules for listing photos and user avatars.
+// Roles are mirrored into Firebase custom claims by the API (`role` claim)
+// whenever an admin changes a user's role.
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isStaff() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.role in ['editor', 'admin'];
+    }
+    function isImage(maxMb) {
+      return request.resource.size < maxMb * 1024 * 1024
+        && request.resource.contentType.matches('image/(jpeg|png|webp)');
+    }
+
+    // Listing photos: public read (served via CDN), staff-only write.
+    match /listings/{listingId}/{fileName} {
+      allow read: if true;
+      allow create, update: if isStaff() && isImage(5)
+        && fileName.matches('[A-Za-z0-9_-]{1,64}\\.(jpg|jpeg|png|webp)');
+      allow delete: if isStaff();
+    }
+
+    // Avatars: each user may only write their own single avatar file.
+    match /avatars/{uid}/avatar.{ext} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == uid
+        && ext in ['jpg', 'jpeg', 'png', 'webp'] && isImage(2);
+    }
+
+    // Everything else is closed by default.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+rules_version = '2';
+// The app stores data in MongoDB behind the API, not in Firestore.
+// Deny all direct client access so an enabled-but-unused Firestore
+// database can never become an open data store.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
