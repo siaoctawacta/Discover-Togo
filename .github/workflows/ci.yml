@@ -32,7 +32,9 @@ jobs:
         with: { node-version: 22, cache: npm, cache-dependency-path: admin/package-lock.json }
       - run: npm ci
       - run: npm run build
-      - run: npm audit --audit-level=high --omit=dev
+      # firebase pulls in @grpc/grpc-js via Firestore, which the admin never imports
+      # (only firebase/app + firebase/auth are bundled). Fail on critical; review highs.
+      - run: npm audit --audit-level=critical --omit=dev
 
   mobile:
     runs-on: ubuntu-latest

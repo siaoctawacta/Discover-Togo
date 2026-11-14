@@ -1,0 +1,27 @@
+# Dependencies & build output
+node_modules
+dist
+dist-ssr
+*.tsbuildinfo
+
+# Environment (keep .env.example)
+.env
+.env.*
+!.env.example
+*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Firebase
+.firebase/
+.firebaserc.local
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.sw?

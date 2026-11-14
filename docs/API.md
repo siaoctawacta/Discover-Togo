@@ -134,7 +134,7 @@ interface MapPin {
 |---|---|---|---|
 | GET | `/admin/stats` | – | `{ listings: {place,restaurant,hotel}, users, pendingReviews, topViewed: AdminListing[] }` |
 | GET | `/admin/listings` | `kind, status, q, page, limit` | `Paginated<AdminListing>` |
-| POST | `/admin/listings` | `AdminListing` input (no id/rating/views/timestamps) | `201 AdminListing` |
+| POST | `/admin/listings` | `AdminListing` input without server-managed fields (`id, rating, reviewCount, views, coverImage, sponsored, createdAt, updatedAt`) — cover = `images[0]`, sponsored derived from `sponsoredUntil` | `201 AdminListing` |
 | GET | `/admin/listings/:id` | – | `AdminListing` |
 | PATCH | `/admin/listings/:id` | partial input | `AdminListing` |
 | DELETE | `/admin/listings/:id` | – | `204` (★) |
@@ -158,3 +158,18 @@ Limits are keyed by user id when authenticated and by client IP otherwise (IPv6 
 | Authenticated writes | 300 / 15 min |
 | Review creation | 10 / hour |
 | `/admin/*` | 2000 / 15 min |
+
+## Validation rules (admin listing input)
+
+| Field | Rule |
+|---|---|
+| `slug` | `^[a-z0-9]+(-[a-z0-9]+)*$`, 2–80, unique |
+| `name.*` / `description.*` | 2–120 / 20–5000 chars, both `en` and `fr` required |
+| `location` | lat 5.9–11.2, lng −0.3–1.9 (Togo bounding box) |
+| `city` | letters/space/apostrophe/hyphen; a known city must belong to `region` |
+| `images` | 1–15, `https://` on an allowed host |
+| `tags` | ≤15, each ≤30 chars, letters/digits/space/hyphen |
+| kind-specific | place: `category` required, `openingHours`/`entryFee` place-only · restaurant: `cuisine` + `priceLevel` required · hotel: `hotelType` + `priceRange` (min ≤ max) required. Fields of other kinds are rejected. |
+| PATCH | top-level merge then full re-validation. Clear `entryFee`/`sponsoredUntil` with `null` and `contact` with `{}`. Other optional fields cannot be cleared yet. |
+
+`VALIDATION_ERROR` responses include `details: { path: "location.lat", message: string }[]` (dotted paths).
