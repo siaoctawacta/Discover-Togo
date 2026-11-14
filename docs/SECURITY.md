@@ -88,7 +88,7 @@ The clients are never trusted. The admin UI hides buttons for convenience, but e
 - Cloud Storage rules (`firebase/storage.rules`): public read for listing photos, staff-only uploads (email verified + role claim, ≤5 MB, image MIME types), per-user avatar paths, deny everything else.
 - Firestore rules: deny all (unused).
 - API container (`backend/Dockerfile`): multi-stage build, runs as the non-root `node` user, dev dependencies removed, includes a healthcheck.
-- **CI** (`.github/workflows/ci.yml`): typecheck, the 48-test security and API suite, `npm audit` (fails on high), gitleaks secret scanning. Dependabot sends weekly update PRs.
+- **CI** (`.github/workflows/ci.yml`): typecheck, the 51-test security and API suite, `npm audit` (fails on high), gitleaks secret scanning. Dependabot sends weekly update PRs.
 - **Secrets** live in environment variables or Secret Manager only. `.gitignore` blocks service-account JSON files, keystores, `google-services.json` and `.env*`.
 - **Firebase console hardening checklist:** see `firebase/README.md` (App Check, API key restrictions, email enumeration protection, authorized domains).
 

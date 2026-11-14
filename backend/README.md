@@ -45,7 +45,7 @@ Container: `docker build -t discover-togo-api backend/`. The image runs as a non
 | Script | |
 |---|---|
 | `npm run dev` | watch mode (tsx) |
-| `npm test` | 48 API + security tests (vitest + supertest, in-memory) |
+| `npm test` | 51 API + security tests (vitest + supertest, in-memory) |
 | `npm run typecheck` / `npm run build` | strict TypeScript |
 | `npm run seed` | upsert sample data into MongoDB |
 | `npm run audit:deps` | dependency vulnerability audit |

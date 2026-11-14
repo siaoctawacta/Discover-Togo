@@ -50,7 +50,7 @@ const toAudit = (d: Doc): AuditRecord => {
   return { ...rest, id: String(_id) } as AuditRecord;
 };
 
-function listingFilter(q: ListingQuery): Doc {
+export function listingFilter(q: ListingQuery): Doc {
   const f: Doc = {};
   const status = q.status ?? 'published';
   if (status !== 'any') f.status = status;
@@ -81,6 +81,21 @@ function listingFilter(q: ListingQuery): Doc {
   return f;
 }
 
+/**
+ * `sanitizeFilter` (enabled globally) wraps any `{$op: …}` value in `$eq`, which
+ * neutralises operator injection from user input. Filters built here contain
+ * operators we created ourselves from zod-validated, typed values, so each such
+ * value is explicitly marked trusted. Never pass raw request data through this.
+ */
+export function trusted<T extends Doc>(filter: T): T {
+  for (const [k, v] of Object.entries(filter)) {
+    if ((k === '$or' || k === '$and' || k === '$nor') && Array.isArray(v)) v.forEach((sub) => trusted(sub));
+    else if (v && typeof v === 'object' && !Array.isArray(v) && !(v instanceof mongoose.Types.ObjectId) && Object.keys(v).some((x) => x.startsWith('$')))
+      (filter as Doc)[k] = mongoose.trusted(v);
+  }
+  return filter;
+}
+
 const SORTS: Record<string, Record<string, SortOrder>> = {
   popular: { views: -1, rating: -1, slug: 1 },
   rating: { rating: -1, reviewCount: -1, slug: 1 },
@@ -93,8 +108,6 @@ export async function createMongoRepository(uri: string): Promise<Repository> {
     maxPoolSize: 20,
     autoIndex: process.env.NODE_ENV !== 'production',
   });
-  // We pass already-validated, typed values; sanitizeFilter must not wrap our own operators.
-  const trusted = <T extends Doc>(f: T) => mongoose.trusted(f) as T;
 
   return {
     listings: {
@@ -136,7 +149,7 @@ export async function createMongoRepository(uri: string): Promise<Repository> {
       },
       async delete(id) {
         const r = await ListingModel.deleteOne({ _id: id });
-        await UserModel.updateMany({}, trusted({ $pull: { favorites: oid(id), recent: { listingId: oid(id) } } }));
+        await UserModel.updateMany({}, { $pull: { favorites: oid(id), recent: { listingId: oid(id) } } });
         return r.deletedCount === 1;
       },
       async incrementViews(id) {
@@ -195,17 +208,17 @@ export async function createMongoRepository(uri: string): Promise<Repository> {
       async addFavorite(id, listingId) {
         await UserModel.updateOne(
           { _id: id },
-          trusted({ $addToSet: { favorites: oid(listingId) } }),
+          { $addToSet: { favorites: oid(listingId) } },
         );
       },
       async removeFavorite(id, listingId) {
-        await UserModel.updateOne({ _id: id }, trusted({ $pull: { favorites: oid(listingId) } }));
+        await UserModel.updateOne({ _id: id }, { $pull: { favorites: oid(listingId) } });
       },
       async pushRecent(id, listingId, max) {
-        await UserModel.updateOne({ _id: id }, trusted({ $pull: { recent: { listingId: oid(listingId) } } }));
+        await UserModel.updateOne({ _id: id }, { $pull: { recent: { listingId: oid(listingId) } } });
         await UserModel.updateOne(
           { _id: id },
-          trusted({ $push: { recent: { $each: [{ listingId: oid(listingId), at: new Date() }], $position: 0, $slice: max } } }),
+          { $push: { recent: { $each: [{ listingId: oid(listingId), at: new Date() }], $position: 0, $slice: max } } },
         );
       },
     },
